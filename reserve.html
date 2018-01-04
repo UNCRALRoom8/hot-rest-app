@@ -34,21 +34,21 @@
 			<h2>Make Your Reservation</h2>
 			<br>
 
-			<a href="tables.html">
+			<a href="/tables">
 			<button class="btn btn-primary" id="toTables" type="">View Tables</button></a>
 
-			<a href="home.html">
+			<a href="/home">
 			<button type="button" class="btn btn-default btn-sm">
           		<span class="glyphicon glyphicon-home"></span>
         	</button></a>
-        	
+
 		</div>
 
 		<div class="panel panel-primary">
 			<div class="panel-heading">Table Reservation</div>
 			<div class="panel-body">
 				<!-- form to reserve a table -->
-				<form>
+				<form id="reservForm">
 
 					<div class="form-group">
 						<label for="Name">Name</label>
@@ -78,7 +78,39 @@
 			
 		</div><!--End of Panel Primary-->
 
-		<a href="view table API" id="leftLink">View Table API</a>
-		<a href="View Waitlist API" id="rightLink">View Waitlist API</a>
+		<a href="/api/tables" id="leftLink">View Table API</a>
+		<a href="/api/waitlist" id="rightLink">View Waitlist API</a>
 
 	</div><!--container close-->
+
+<!--Time for Javascript!!  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$("#sub-butt").on('click', function() {
+			//send the ajax
+			$.ajax({
+				//where the ajax goes
+				url: '/api/waitlist'
+				//what type of action it is
+				type: "POST"
+				// what datatype it is:
+				dataType: 'json'
+				data: $("#reservForm").serialize(),
+				//give it a quick console.log:
+				success: function (result) {
+					console.log(result);
+				},
+				error: function() {
+					alert("Something erred.")
+				}
+			}) //.ajax end
+		});  //sub-butt on click end
+
+		
+	</script>
+
+
+
+
+</body>
