@@ -53,15 +53,15 @@
 
   <script type="text/javascript">
     
-      var availableTables = 6;
+      // var availableTables = 6;
 
-      // $.get("/api/tables", function(data) {
+      $.get("/api/tables", function(data) {
       
-      // console.log(data);
+      console.log(data);
       
-      // if (data) {
+      if (data) {
 
-        for (var i = 1; i < availableTables; i++) {
+        for (var i = 0; i < data.length; i++) {
         
           var newDiv = $("<div>");
           newDiv.addClass("well");
@@ -71,9 +71,9 @@
 
           var tableNumBadge = $("<span>");
           tableNumBadge.addClass("label label-info");
-          tableNumBadge.text(i); // need to add data.id from server get
+          tableNumBadge.text(data.customerID); 
 
-          newH2Tag.text(" | customer" + i); // need to add data.customerName from server get
+          newH2Tag.text(" | " + data.customerName); // need to add data.customerName from server get
 
           newH2Tag.prepend(tableNumBadge);
           newDiv.append(newH2Tag);
@@ -82,6 +82,22 @@
         }
 
         $("#current-tables").show();
+
+      }
+      else {
+
+        $("#current-tables").text("No Tables Currently Reserved");
+        $("#waitlist-view").hide();
+
+      }
+
+    });
+
+    $.get("/api/waitlist", function(data) {
+      
+      console.log(data);
+      
+      if (data) {
 
         for (var i = 1; i < availableTables; i++) {
         
@@ -93,9 +109,9 @@
 
           var tableNumBadge = $("<span>");
           tableNumBadge.addClass("label label-info");
-          tableNumBadge.text(i); // need to add data.id from server get
+          tableNumBadge.text(data.customerID); // need to add data.id from server get
 
-          newH2Tag.text(" | customer" + i); // need to add data.customerName from server get
+          newH2Tag.text(" | " data.customerName); // need to add data.customerName from server get
 
           newH2Tag.prepend(tableNumBadge);
           newDiv.append(newH2Tag);
@@ -103,30 +119,19 @@
 
         }
 
-
         $("#waitlist-view").show();
 
 
+      }
+      else {
 
-        // var tableNum = $("<span>");
+        $("#waitlist-view").text("No Waitlist Information Currently Available");
+        $("#waitlist-view").show();
 
-        // tableNum
-        // $()
-        
-      //   $("#stats").show();
-      //   $("#name").text(data.name);
-      //   $("#role").text(data.role);
-      //   $("#age").text(data.age);
-      //   $("#force-points").text(data.forcePoints);
-      // }
-      // else {
+      }
 
-      //   $("#name").text("The force is not strong with this one. Your character was not found.");
-      //   $("#stats").hide();
-      
-      // }
-
-    // });
+    });
+   
 
   </script>
 </body>

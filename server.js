@@ -106,7 +106,7 @@ app.get("/reserve", function(req, res) {
 });
 
 app.get("/tables", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 
