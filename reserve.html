@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Hot Spot</title>
+	<!--Link to bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+	<style type="text/css">
+		body {
+			background-color: #fff;
+			color: #004748;
+			font-family: Verdana, "Arial", sans serif;
+		}
+		.jumbotron {
+			background-color: #999;
+			color: #004748;
+			font-family: Georgia, "Times New Roman", serif;
+			text-align: center;
+		}
+		#rightLink {
+			border-left: solid 2px #555;
+			padding-left: 4px;
+		}
+		#leftLink {
+			padding-right: 4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>The Hot Spot</h1>
+			<hr>
+			<h2>Make Your Reservation</h2>
+			<br>
+
+			<a href="tables.html">
+			<button class="btn btn-primary" id="toTables" type="">View Tables</button></a>
+
+			<a href="home.html">
+			<button type="button" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-home"></span>
+        	</button></a>
+        	
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Table Reservation</div>
+			<div class="panel-body">
+				<!-- form to reserve a table -->
+				<form>
+
+					<div class="form-group">
+						<label for="Name">Name</label>
+						<input type="text" class="form-control" id="Name">
+					</div>
+
+					<div class="form-group">
+						<label for="Phone">Phone Number</label>
+						<input type="number" id="Phone" class="form-control">
+					</div>
+
+					<div class="form-group">
+		    			<label for="Email">Email</label>
+		    			<input type="text" class="form-control" id="Email">
+		    		</div>
+
+		    		<div class="form-group">
+		    			<label for="Uniq">Unique ID</label>
+		    			<input type="text" class="form-control" id="Uniq">
+		    		</div>
+
+					<button class="btn btn-primary" id="sub-butt" type="submit">Submit</button>
+
+				</form>
+				
+			</div> <!--End of Panel Body-->
+			
+		</div><!--End of Panel Primary-->
+
+		<a href="view table API" id="leftLink">View Table API</a>
+		<a href="View Waitlist API" id="rightLink">View Waitlist API</a>
+
+	</div><!--container close-->
