@@ -102,7 +102,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/reserve", function(req, res) {
-  res.sendFile(path.join(__dirname, "make.html"));
+  res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 app.get("/tables", function(req, res) {
