@@ -71,9 +71,9 @@
 
           var tableNumBadge = $("<span>");
           tableNumBadge.addClass("label label-info");
-          tableNumBadge.text(data.customerID); 
+          tableNumBadge.text(data[i].customerID); 
 
-          newH2Tag.text(" | " + data.customerName); // need to add data.customerName from server get
+          newH2Tag.text(" | " + data[i].customerName); // need to add data.customerName from server get
 
           newH2Tag.prepend(tableNumBadge);
           newDiv.append(newH2Tag);
@@ -99,7 +99,7 @@
       
       if (data) {
 
-        for (var i = 1; i < availableTables; i++) {
+        for (var i = 0; i < data.length; i++) {
         
           var newDiv = $("<div>");
           newDiv.addClass("well");
@@ -109,9 +109,9 @@
 
           var tableNumBadge = $("<span>");
           tableNumBadge.addClass("label label-info");
-          tableNumBadge.text(data.customerID); // need to add data.id from server get
+          tableNumBadge.text(data[i].customerID); // need to add data.id from server get
 
-          newH2Tag.text(" | " data.customerName); // need to add data.customerName from server get
+          newH2Tag.text(" | " + data[i].customerName); // need to add data.customerName from server get
 
           newH2Tag.prepend(tableNumBadge);
           newDiv.append(newH2Tag);
